@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bettler – returning to the app</title>
+<style>body{font-family:-apple-system,system-ui,sans-serif;max-width:32rem;margin:3rem auto;padding:0 1rem;color:#222}</style>
+</head>
+<body>
+<h1>Bettler</h1>
+<p id="msg">Returning to the app…</p>
+<p><a id="open" href="bettler://auth-callback">Open Bettler</a></p>
+<script>
+  // Forward the bank authorisation result (code/state/error) to the app's custom URL scheme.
+  var target = "bettler://auth-callback" + window.location.search;
+  document.getElementById("open").href = target;
+  if (window.location.search) { window.location.replace(target); }
+  else { document.getElementById("msg").textContent = "This page only forwards you back to the Bettler app."; }
+</script>
+</body>
+</html>
